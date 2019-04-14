@@ -41,15 +41,13 @@ def animate(i):
     ax1.clear()
     ax1.plot(xs, ys)
 
-button = tkinter.Button(master=root, text="SET")
-et = tkinter.Entry(master=root,width=60)
-et.pack(side=tkinter.TOP)
-button.pack(side=tkinter.BOTTOM)
-
 
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
 
-
+button = tkinter.Button(master=root, text="SET")
+et = tkinter.Entry(master=root,width=60)
+et.pack(side=tkinter.TOP)
+button.pack(side=tkinter.BOTTOM)
 
 tkinter.mainloop()
