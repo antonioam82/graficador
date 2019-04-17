@@ -15,6 +15,7 @@ root.wm_title("Graficador")
 
 style.use('fivethirtyeight')
 
+#fig = Figure(figsize=(5, 4), dpi=100)
 fig = Figure()
 ax1 = fig.add_subplot(111)
 
@@ -44,7 +45,7 @@ def animate(i):
     ax1.clear()
     ax1.plot(xs, ys)
 
-def cerrar():
+def represent():
     graph_dataa = open('ejemplo.txt','r')
     graph_dataa.close()
     graph_dataa=open('ejemplo.txt','w')
@@ -52,7 +53,7 @@ def cerrar():
     #print(et.get())
     graph_dataa.close()
 
-button = tkinter.Button(master=root, text="SET", command=cerrar)
+button = tkinter.Button(master=root, text="SET", command=represent)
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
 
