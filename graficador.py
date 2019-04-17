@@ -6,6 +6,8 @@ import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
 
+#os.chdir()
+
 root = tkinter.Tk()
 root.wm_title("Graficador")
 #root.geometry("1000x100")
