@@ -10,6 +10,7 @@ os.chdir(r'C:\Users\Antonio\Documents\docs')
 
 root = tkinter.Tk()
 root.wm_title("Graficador")
+#root.geometry("1000x100")
 #root.configure(background="SkyBlue4")
 
 style.use('fivethirtyeight')
@@ -26,10 +27,8 @@ toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
 toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
-
-
 def animate(i):
-    graph_dataa = open('ejemplo.txt','r')#nuevo sitio
+    graph_dataa = open('ejemplo.txt','r') #nuevo sitio
     graph_data=graph_dataa.read()
 
 
@@ -50,22 +49,15 @@ def cerrar():
     graph_dataa = open('ejemplo.txt','r')
     graph_dataa.close()
     graph_dataa=open('ejemplo.txt','w')
-    graph_dataa.write('22,88')
+    graph_dataa.write(et.get())
+    #print(et.get())
     graph_dataa.close()
 
 button = tkinter.Button(master=root, text="SET", command=cerrar)
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
 
-#def cerrar():
-    #graph_dataa.close()
-    #graph_dataa=open('ejemplo.txt','w')
-    #graph_dataa.write('1,1')
-    #graph_dataa.close()
-    
-    
-
-et = tkinter.Entry(master=root,width=60)
+et =tkinter.Entry(master=root,width=60)
 et.pack(side=tkinter.TOP)
 button.pack(side=tkinter.BOTTOM)
 
