@@ -15,7 +15,6 @@ root.wm_title("Graficador")
 
 style.use('fivethirtyeight')
 
-#fig = Figure(figsize=(5, 4), dpi=100)
 fig = Figure()
 ax1 = fig.add_subplot(111)
 
