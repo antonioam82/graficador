@@ -6,7 +6,7 @@ import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
 
-#os.chdir()
+os.chdir(r'C:\Users\Antonio\Documents\docs')
 
 root = tkinter.Tk()
 root.wm_title("Graficador")
@@ -28,22 +28,25 @@ toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
 def animate(i):
+    t = np.arange(0, 3, .01)
     graph_dataa = open('ejemplo.txt','r') #nuevo sitio
     graph_data=graph_dataa.read()
+    #2*np.sin(2*np.pi*t)
+    ax1.clear()
+    ax1.plot(t,eval(graph_data))
 
-
-    lines = graph_data.split('\n')
-    xs = []
-    ys = []
-    for line in lines:
-        if len(line) > 1:
-            x, y = line.split(',')
-            xs.append(x)
-            ys.append(y)
+    #lines = graph_data.split('\n')
+    #xs = []
+    #ys = []
+    #for line in lines:
+        #if len(line) > 1:
+            #x, y = line.split(',')
+            #xs.append(x)
+            #ys.append(y)
     #print("22")
        
-    ax1.clear()
-    ax1.plot(xs, ys)
+    #ax1.clear()
+    #ax1.plot(xs, ys)
 
 def represent():
     graph_dataa = open('ejemplo.txt','r')
