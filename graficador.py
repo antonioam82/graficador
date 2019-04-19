@@ -55,8 +55,7 @@ def represent():
     graph_dataa.close()
     graph_dataa=open('ejemplo.txt','w')
     texto_orig=str(et.get())
-    tn=texto_orig.replace("cos","np.cos")
-    graph_dataa.write(tn)
+    graph_dataa.write(texto_orig+"\n")
     #print(et.get())
     graph_dataa.close()
 
