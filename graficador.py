@@ -35,27 +35,18 @@ def animate(i):
     #2*np.sin(2*np.pi*t)
     solo=eval(graph_data)
     ax1.clear()
-    ax1.plot(t,solo)
-
-    #lines = graph_data.split('\n')
-    #xs = []
-    #ys = []
-    #for line in lines:
-        #if len(line) > 1:
-            #x, y = line.split(',')
-            #xs.append(x)
-            #ys.append(y)
-    #print("22")
-       
-    #ax1.clear()
-    #ax1.plot(xs, ys)
+    ax1.plot(solo)
 
 def represent():
     graph_dataa = open('ejemplo.txt','r')
     graph_dataa.close()
     graph_dataa=open('ejemplo.txt','w')
     texto_orig=str(et.get())
-    graph_dataa.write(texto_orig+"\n")
+    #chapuzi
+    ta=texto_orig.replace("sin","np.sin")
+    tb=ta.replace("cos","np.cos")
+    tc=tb.replace("tan","np.tan")
+    graph_dataa.write(tc+"\n")
     #print(et.get())
     graph_dataa.close()
 
