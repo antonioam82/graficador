@@ -5,12 +5,13 @@ from matplotlib import style
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
+from math import pi
 
 os.chdir(r'C:\Users\Antonio\Documents\docs')
 
 root = tkinter.Tk()
 root.wm_title("Graficador")
-#root.geometry("1000x100")
+#root.geometry("500x500")
 #root.configure(background="SkyBlue4")
 
 style.use('fivethirtyeight')
@@ -32,8 +33,9 @@ def animate(i):
     graph_dataa = open('ejemplo.txt','r') #nuevo sitio
     graph_data=graph_dataa.read()
     #2*np.sin(2*np.pi*t)
+    solo=eval(graph_data)
     ax1.clear()
-    ax1.plot(t,eval(graph_data))
+    ax1.plot(t,solo)
 
     #lines = graph_data.split('\n')
     #xs = []
@@ -52,7 +54,9 @@ def represent():
     graph_dataa = open('ejemplo.txt','r')
     graph_dataa.close()
     graph_dataa=open('ejemplo.txt','w')
-    graph_dataa.write(et.get())
+    texto_orig=str(et.get())
+    tn=texto_orig.replace("cos","np.cos")
+    graph_dataa.write(tn)
     #print(et.get())
     graph_dataa.close()
 
