@@ -5,9 +5,9 @@ from matplotlib import style
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
-from math import pi
+from math import *
 
-os.chdir(r'C:\Users\Antonio\Documents\docs')
+#os.chdir()
 
 root = tkinter.Tk()
 root.wm_title("Graficador")
@@ -29,13 +29,16 @@ toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
 def animate(i):
-    t = np.arange(0, 3, .01)
-    graph_dataa = open('ejemplo.txt','r') #nuevo sitio
-    graph_data=graph_dataa.read()
-    #2*np.sin(2*np.pi*t)
-    solo=eval(graph_data)
-    ax1.clear()
-    ax1.plot(solo)
+    t = np.arange(0, 5, .01)
+    try:
+        graph_dataa = open('ejemplo.txt','r') #nuevo sitio
+        graph_data=graph_dataa.read()
+        #2*np.sin(2*np.pi*t)
+        solo=eval(graph_data)
+        ax1.clear()
+        ax1.plot(solo)
+    except:
+        ax1.plot()
 
 def represent():
     graph_dataa = open('ejemplo.txt','r')
@@ -59,4 +62,5 @@ et.pack(side=tkinter.TOP)
 button.pack(side=tkinter.BOTTOM)
 
 tkinter.mainloop()
+
 
