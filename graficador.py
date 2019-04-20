@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from math import *
 
-os.chdir(r'C:\Users\Antonio\Documents\docs')
+#os.chdir()
 
 root = tkinter.Tk()
 root.wm_title("Graficador")
