@@ -9,7 +9,7 @@ from math import *
 
 root = tkinter.Tk()
 root.wm_title("Graficador")
-#root.geometry("500x500")
+ta=root.geometry("1000x700")
 #root.configure(background="SkyBlue4")
 
 style.use('fivethirtyeight')
