@@ -1,4 +1,4 @@
-import tkinter, os
+import tkinter
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib import style
@@ -6,8 +6,6 @@ import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
 from math import *
-
-#os.chdir()
 
 root = tkinter.Tk()
 root.wm_title("Graficador")
@@ -31,9 +29,6 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 def animate(i):
     x = np.arange(0, 5, .01)
     try:
-        graph_dataa = open('ejemplo.txt','r') #nuevo sitio
-        graph_data=graph_dataa.read()
-        #2*np.sin(2*np.pi*t)
         solo=eval(graph_data)
         ax1.clear()
         ax1.plot(x,solo)
@@ -41,17 +36,12 @@ def animate(i):
         ax1.plot()
 
 def represent():
-    graph_dataa = open('ejemplo.txt','r')
-    graph_dataa.close()
-    graph_dataa=open('ejemplo.txt','w')
-    texto_orig=str(et.get())
-    #chapuzi
+    global graph_data
+    texto_orig=et.get()
     ta=texto_orig.replace("sin","np.sin")
     tb=ta.replace("cos","np.cos")
     tc=tb.replace("tan","np.tan")
-    graph_dataa.write(tc+"\n")
-    #print(et.get())
-    graph_dataa.close()
+    graph_data=tc
 
 button = tkinter.Button(master=root, text="SET", command=represent)
 ani = animation.FuncAnimation(fig, animate, interval=1000)
