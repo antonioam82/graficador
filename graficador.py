@@ -40,7 +40,8 @@ def represent():
     texto_orig=et.get()
     ta=texto_orig.replace("sin","np.sin")
     tb=ta.replace("cos","np.cos")
-    tc=tb.replace("tan","np.tan")
+    tl=tb.replace("log","np.log")
+    tc=tl.replace("tan","np.tan")
     graph_data=tc
 
 button = tkinter.Button(master=root, text="SET", command=represent)
