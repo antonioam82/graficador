@@ -25,9 +25,14 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
 toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
-
+act_rango=False
+ran=""
 def animate(i):
-    x = np.arange(0, 5, .01)
+    if act_rango==True:
+        #ran=[0,12]
+        x = np.arange(int(ran[0]), int(ran[1]), .01)
+    else:
+        x = np.arange(0, 10, .01)
     try:
         solo=eval(graph_data)
         ax1.clear()
@@ -44,6 +49,13 @@ def represent():
     tc=tl.replace("tan","np.tan")
     graph_data=tc
 
+def rango():
+    global ran
+    global act_rango
+    rann=ets.get()
+    ran=rann.split(",")
+    act_rango=True
+
 button = tkinter.Button(master=root, text="SET", command=represent)
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
@@ -51,6 +63,13 @@ plt.show()
 et =tkinter.Entry(master=root,width=60)
 et.pack(side=tkinter.TOP)
 button.pack(side=tkinter.BOTTOM)
+#textvariable=input_text
+
+ets=tkinter.Entry(master=root,width=10)#.place(x=20,y=20)
+#ets.pack()
+Buttonn=tkinter.Button(master=root, text="ESTAB",command=rango).place(x=20,y=40)
+ets.pack(side=tkinter.RIGHT)
+#ets.pack(root)
 
 tkinter.mainloop()
 
