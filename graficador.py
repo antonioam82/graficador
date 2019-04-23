@@ -42,19 +42,19 @@ def animate(i):
 
 def represent():
     global graph_data
+    global ran
+    global act_rango
     texto_orig=et.get()
+    if ets.get()!="":
+        rann=ets.get()
+        ran=rann.split(",")
+        act_rango=True
     ta=texto_orig.replace("sin","np.sin")
     tb=ta.replace("cos","np.cos")
     tl=tb.replace("log","np.log")
     tc=tl.replace("tan","np.tan")
     graph_data=tc
 
-def rango():
-    global ran
-    global act_rango
-    rann=ets.get()
-    ran=rann.split(",")
-    act_rango=True
 
 button = tkinter.Button(master=root, text="SET", command=represent)
 ani = animation.FuncAnimation(fig, animate, interval=1000)
@@ -65,10 +65,9 @@ et.pack(side=tkinter.TOP)
 button.pack(side=tkinter.BOTTOM)
 #textvariable=input_text
 
-ets=tkinter.Entry(master=root,width=10)#.place(x=20,y=20)
-#ets.pack()
-Buttonn=tkinter.Button(master=root, text="ESTAB",command=rango).place(x=20,y=40)
+ets=tkinter.Entry(master=root,width=10)#.place(x=650,y=650)
 ets.pack(side=tkinter.RIGHT)
+
 #ets.pack(root)
 
 tkinter.mainloop()
