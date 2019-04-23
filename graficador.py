@@ -30,7 +30,7 @@ ran=""
 def animate(i):
     if act_rango==True:
         #ran=[0,12]
-        x = np.arange(int(ran[0]), int(ran[1]), .01)
+        x = np.arange(float(ran[0]), float(ran[1]), .01)
     else:
         x = np.arange(0, 10, .01)
     try:
