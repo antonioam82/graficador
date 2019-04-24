@@ -29,10 +29,9 @@ act_rango=False
 ran=""
 def animate(i):
     if act_rango==True:
-        #ran=[0,12]
         x = np.arange(float(ran[0]), float(ran[1]), .01)
     else:
-        x = np.arange(0, 10, .01)
+        x = np.arange(1, 10, .01)
     try:
         solo=eval(graph_data)
         ax1.clear()
@@ -53,7 +52,8 @@ def represent():
     tb=ta.replace("cos","np.cos")
     tl=tb.replace("log","np.log")
     tc=tl.replace("tan","np.tan")
-    graph_data=tc
+    tr=tc.replace("sqrt","np.sqrt")
+    graph_data=tr
 
 
 button = tkinter.Button(master=root, text="SET", command=represent)
@@ -63,12 +63,10 @@ plt.show()
 et =tkinter.Entry(master=root,width=60)
 et.pack(side=tkinter.TOP)
 button.pack(side=tkinter.BOTTOM)
-#textvariable=input_text
 
-ets=tkinter.Entry(master=root,width=10)#.place(x=650,y=650)
+ets=tkinter.Entry(master=root,width=10)
 ets.pack(side=tkinter.RIGHT)
 
-#ets.pack(root)
 
 tkinter.mainloop()
 
