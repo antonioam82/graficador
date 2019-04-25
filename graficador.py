@@ -5,6 +5,7 @@ from matplotlib import style
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
+from tkinter import messagebox
 from math import *
 
 root = tkinter.Tk()
@@ -28,8 +29,15 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango=False
 ran=""
 def animate(i):
+    global act_rango
     if act_rango==True:
-        x = np.arange(float(ran[0]), float(ran[1]), .01)
+        try:
+            x = np.arange(float(ran[0]), float(ran[1]), .01)
+        except:
+            messagebox.showwarning("Error","Rango no válido")
+            #print("Se repite")
+            act_rango=False
+            ets.delete(0,len(ets.get()))
     else:
         x = np.arange(1, 10, .01)
     try:
@@ -69,5 +77,6 @@ ets.pack(side=tkinter.RIGHT)
 
 
 tkinter.mainloop()
+
 
 
