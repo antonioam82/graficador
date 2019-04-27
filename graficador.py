@@ -37,7 +37,7 @@ def animate(i):
             x = np.arange(float(ran[0]), float(ran[1]), .01)
             ul_ran=[float(ran[0]), float(ran[1])]
         except:
-            messagebox.showwarning("Error","Rango no válido")
+            messagebox.showwarning("Error","Entrada no válida")
             #print("Se repite")
             act_rango=False
             ets.delete(0,len(ets.get()))
