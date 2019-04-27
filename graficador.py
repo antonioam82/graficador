@@ -27,19 +27,25 @@ toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
 toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango=False
+ul_ran=""
 ran=""
 def animate(i):
     global act_rango
+    global ul_ran
     if act_rango==True:
         try:
             x = np.arange(float(ran[0]), float(ran[1]), .01)
+            ul_ran=[float(ran[0]), float(ran[1])]
         except:
             messagebox.showwarning("Error","Rango no válido")
             #print("Se repite")
             act_rango=False
             ets.delete(0,len(ets.get()))
     else:
-        x = np.arange(1, 10, .01)
+        if ul_ran!="":
+            x = np.arange(ul_ran[0],ul_ran[1], .01)
+        else:
+            x = np.arange(1, 10, .01)
     try:
         solo=eval(graph_data)
         ax1.clear()
