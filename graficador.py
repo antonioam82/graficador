@@ -41,7 +41,6 @@ def animate(i):
                 ul_ran=[float(ran[0]), float(ran[1])]
         except:
             messagebox.showwarning("Error","Entrada no válida")
-            #print("Se repite")
             act_rango=False
             ets.delete(0,len(ets.get()))
     else:
