@@ -25,8 +25,8 @@ canvas = FigureCanvasTkAgg(fig, master=root)  # CREAR AREA DE DIBUJO DE TKINTER.
 canvas.draw()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
-toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
-toolbar.update()
+#toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
+#toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango=False
 ul_ran=""
@@ -77,7 +77,7 @@ ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
 
 et =tkinter.Entry(master=root,width=60)
-#et.config(bg="black", fg="#03f943", justify="left")
+et.config(bg="black", fg="#03f943", justify="left")
 et.pack(side=tkinter.TOP)
 button.pack(side=tkinter.BOTTOM)
 
@@ -86,6 +86,5 @@ ets.pack(side=tkinter.RIGHT)
 
 
 tkinter.mainloop()
-
 
 
