@@ -25,8 +25,8 @@ canvas = FigureCanvasTkAgg(fig, master=root)  # CREAR AREA DE DIBUJO DE TKINTER.
 canvas.draw()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
-#toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
-#toolbar.update()
+toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
+toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango=False
 ul_ran=""
@@ -36,11 +36,13 @@ def animate(i):
     global ul_ran
     if act_rango==True:
         try:
-            if float(ran[0])<float(ran[1]):
-                x = np.arange(float(ran[0]), float(ran[1]), .01)
-                ul_ran=[float(ran[0]), float(ran[1])]
+            lmin = float(ran[0]); lmax = float(ran[1])
+            if lmin < lmax:
+                x = np.arange(lmin, lmax, .01)
+                ul_ran = [lmin, lmax]
         except:
             messagebox.showwarning("Error","Entrada no válida")
+            #print("Se repite")
             act_rango=False
             ets.delete(0,len(ets.get()))
     else:
@@ -86,5 +88,4 @@ ets.pack(side=tkinter.RIGHT)
 
 
 tkinter.mainloop()
-
 
