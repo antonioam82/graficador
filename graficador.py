@@ -40,6 +40,8 @@ def animate(i):
             if lmin < lmax:
                 x = np.arange(lmin, lmax, .01)
                 ul_ran = [lmin, lmax]
+            else:
+                act_rango = False
         except:
             messagebox.showwarning("Error","Entrada no válida")
             #print("Se repite")
