@@ -44,7 +44,6 @@ def animate(i):
                 act_rango = False
         except:
             messagebox.showwarning("Error","Entrada no válida")
-            #print("Se repite")
             act_rango=False
             ets.delete(0,len(ets.get()))
     else:
