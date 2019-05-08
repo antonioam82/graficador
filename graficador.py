@@ -25,8 +25,8 @@ canvas = FigureCanvasTkAgg(fig, master=root)  # CREAR AREA DE DIBUJO DE TKINTER.
 canvas.draw()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
-toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
-toolbar.update()
+#toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
+#toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango=False
 ul_ran=""
