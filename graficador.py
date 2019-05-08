@@ -56,12 +56,12 @@ def animate(i):
         solo=eval(graph_data)
         ax1.clear()
         ax1.plot(x,solo)
-        ax1.axhline(0, color="black")
-        ax1.axvline(0, color="black")
+        ax1.axhline(0, color="gray")
+        ax1.axvline(0, color="gray")
     except:
         ax1.plot()
-        ax1.axhline(0, color="black")
-        ax1.axvline(0, color="black")
+        ax1.axhline(0, color="gray")
+        ax1.axvline(0, color="gray")
 
 def represent():
     global graph_data
