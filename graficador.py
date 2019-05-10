@@ -13,7 +13,6 @@ from math import *
 root = tkinter.Tk()
 root.wm_title("Graficador")
 ta=root.geometry("1000x700")#1000x700
-#root.configure(background="SkyBlue4")
 
 style.use('fivethirtyeight')#'
 
