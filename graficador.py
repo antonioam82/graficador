@@ -13,6 +13,7 @@ from math import *
 root = tkinter.Tk()
 root.wm_title("Graficador")
 ta=root.geometry("1000x700")#1000x700
+#root.configure(background="SkyBlue4")
 
 style.use('fivethirtyeight')#'
 
@@ -79,12 +80,12 @@ def represent():
     graph_data=tr
 
 
-button = tkinter.Button(master=root, text="SET", command=represent)
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
 
 et = tkinter.Entry(master=root,width=60)
 et.config(bg="gray87", justify="left")
+button = tkinter.Button(master=root, text="SET", command=represent)
 button.pack(side=tkinter.BOTTOM)
 et.pack(side=tkinter.BOTTOM)
 
