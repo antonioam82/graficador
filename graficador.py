@@ -85,12 +85,13 @@ ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
 
 et = tkinter.Entry(master=root,width=60)
-#et.config(bg="black", fg="#03f943", justify="left")
-et.pack(side=tkinter.TOP)
+et.config(bg="gray87", justify="left")
 button.pack(side=tkinter.BOTTOM)
+et.pack(side=tkinter.BOTTOM)
 
 ets=tkinter.Entry(master=root,width=10)
 ets.pack(side=tkinter.RIGHT)
-opciones=plt.style.available
+label = tkinter.Label(master = root, text = "RANGO DE 'X'")
+label.pack(side = tkinter.RIGHT)
 
 tkinter.mainloop()
