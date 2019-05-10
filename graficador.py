@@ -15,7 +15,7 @@ root.wm_title("Graficador")
 ta=root.geometry("1000x700")#1000x700
 #root.configure(background="SkyBlue4")
 
-style.use('fivethirtyeight')
+style.use('fivethirtyeight')#
 
 #fig = Figure(figsize=(5, 4), dpi=100)
 fig = Figure()
@@ -25,8 +25,8 @@ canvas = FigureCanvasTkAgg(fig, master=root)  # CREAR AREA DE DIBUJO DE TKINTER.
 canvas.draw()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
-#toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
-#toolbar.update()
+toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
+toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango=False
 ul_ran=""
@@ -83,14 +83,18 @@ def represent():
 button = tkinter.Button(master=root, text="SET", command=represent)
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
-
-et =tkinter.Entry(master=root,width=60)
+var=tkinter.StringVar(root)
+var.set('fivethirtyeight')
+opciones=plt.style.available
+et = tkinter.Entry(master=root,width=60)
 #et.config(bg="black", fg="#03f943", justify="left")
 et.pack(side=tkinter.TOP)
 button.pack(side=tkinter.BOTTOM)
 
 ets=tkinter.Entry(master=root,width=10)
 ets.pack(side=tkinter.RIGHT)
+estilo=tkinter.OptionMenu(root, var,*opciones)
+estilo.pack(side=tkinter.LEFT)
 
 
 tkinter.mainloop()
