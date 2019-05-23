@@ -31,6 +31,12 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango=False
 ul_ran=""
 ran=""
+
+#def ejes():
+    #ax1.axhline(0, color="gray")
+    #ax1.axvline(0, color="gray")
+
+    
 def animate(i):
     global act_rango
     global ul_ran
@@ -56,12 +62,12 @@ def animate(i):
         solo=eval(graph_data)
         ax1.clear()
         ax1.plot(x,solo)
-        ax1.axhline(0, color="gray")
-        ax1.axvline(0, color="gray")
+        #ax1.axhline(0, color="gray")
+        #ax1.axvline(0, color="gray")
     except:
         ax1.plot()
-        ax1.axhline(0, color="gray")
-        ax1.axvline(0, color="gray")
+    ax1.axhline(0, color="gray")
+    ax1.axvline(0, color="gray")
 
 def represent():
     global graph_data
