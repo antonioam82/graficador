@@ -84,7 +84,7 @@ plt.show()
 
 et = tkinter.Entry(master=root,width=60)
 et.config(bg="gray87", justify="left")
-button = tkinter.Button(master=root, text="SET", bg="PaleGreen1", command=represent)
+button = tkinter.Button(master=root, text="SET", bg="gray69", command=represent)
 button.pack(side=tkinter.BOTTOM)
 et.pack(side=tkinter.BOTTOM)
 #button = tkinter.Button(master=root, text="VER EJES", command=marca_ejes)
