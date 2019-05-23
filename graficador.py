@@ -29,15 +29,12 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 #toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango=False
+ejes=False
 ul_ran=""
 ran=""
-
-#def ejes():
-    #ax1.axhline(0, color="gray")
-    #ax1.axvline(0, color="gray")
-
     
 def animate(i):
+    global ejes
     global act_rango
     global ul_ran
     if act_rango==True:
@@ -50,7 +47,6 @@ def animate(i):
                 act_rango = False
         except:
             messagebox.showwarning("Error","Entrada no válida")
-            #print("Se repite")
             act_rango=False
             ets.delete(0,len(ets.get()))
     else:
@@ -62,8 +58,6 @@ def animate(i):
         solo=eval(graph_data)
         ax1.clear()
         ax1.plot(x,solo)
-        #ax1.axhline(0, color="gray")
-        #ax1.axvline(0, color="gray")
     except:
         ax1.plot()
     ax1.axhline(0, color="gray")
@@ -91,9 +85,11 @@ plt.show()
 
 et = tkinter.Entry(master=root,width=60)
 et.config(bg="gray87", justify="left")
-button = tkinter.Button(master=root, text="SET", command=represent)
+button = tkinter.Button(master=root, text="SET", bg="PaleGreen1", command=represent)
 button.pack(side=tkinter.BOTTOM)
 et.pack(side=tkinter.BOTTOM)
+#button = tkinter.Button(master=root, text="VER EJES", command=marca_ejes)
+#button.pack(side=tkinter.LEFT)
 
 ets=tkinter.Entry(master=root,width=10)
 ets.pack(side=tkinter.RIGHT)
