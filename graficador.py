@@ -28,7 +28,6 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 #toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
 #toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
-expresiones=[]
 act_rango=False
 ul_ran=""
 ran=""
@@ -80,12 +79,6 @@ def represent():
     tr=tc.replace("sqrt","np.sqrt")
     graph_data=tr
 
-def guardar(e):
-    global expresiones
-    expresiones.append(e)
-    #print(expresiones)
-
-
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
 
@@ -94,14 +87,10 @@ et.config(bg="gray87", justify="left")
 button = tkinter.Button(master=root, text="SET", bg="gray69", command=represent)
 button.pack(side=tkinter.BOTTOM)
 et.pack(side=tkinter.BOTTOM)
-#button = tkinter.Button(master=root, text="VER EJES", command=marca_ejes)
-#button.pack(side=tkinter.LEFT)
 
 ets=tkinter.Entry(master=root,width=10)
 ets.pack(side=tkinter.RIGHT)
 label = tkinter.Label(master = root, text = "RANGO DE 'X'")
 label.pack(side = tkinter.RIGHT)
-button = tkinter.Button(master=root, text="GUARDAR FUNCIÓN", bg="gray69", command=lambda:guardar(et.get()))
-button.place(x=1, y=1)
 
 tkinter.mainloop()
