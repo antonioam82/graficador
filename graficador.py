@@ -28,6 +28,7 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 #toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
 #toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+expresiones=[]
 act_rango=False
 ul_ran=""
 ran=""
@@ -46,6 +47,7 @@ def animate(i):
                 act_rango = False
         except:
             messagebox.showwarning("Error","Entrada no válida")
+            #print("Se repite")
             act_rango=False
             ets.delete(0,len(ets.get()))
     else:
@@ -78,6 +80,11 @@ def represent():
     tr=tc.replace("sqrt","np.sqrt")
     graph_data=tr
 
+def guardar(e):
+    global expresiones
+    expresiones.append(e)
+    #print(expresiones)
+
 
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
@@ -94,5 +101,7 @@ ets=tkinter.Entry(master=root,width=10)
 ets.pack(side=tkinter.RIGHT)
 label = tkinter.Label(master = root, text = "RANGO DE 'X'")
 label.pack(side = tkinter.RIGHT)
+button = tkinter.Button(master=root, text="GUARDAR FUNCIÓN", bg="gray69", command=lambda:guardar(et.get()))
+button.place(x=1, y=1)
 
 tkinter.mainloop()
