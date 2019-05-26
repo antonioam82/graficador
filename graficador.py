@@ -12,12 +12,10 @@ from math import *
 
 root = tkinter.Tk()
 root.wm_title("Graficador")
-ta=root.geometry("1000x700")#1000x700
-#root.configure(background="SkyBlue4")
+ta=root.geometry("1000x700")
 
 style.use('fivethirtyeight')#'
 
-#fig = Figure(figsize=(5, 4), dpi=100)
 fig = Figure()
 ax1 = fig.add_subplot(111)
 
@@ -46,7 +44,6 @@ def animate(i):
                 act_rango = False
         except:
             messagebox.showwarning("Error","Entrada no válida")
-            #print("Se repite")
             act_rango=False
             ets.delete(0,len(ets.get()))
     else:
