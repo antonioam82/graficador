@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import tkinter
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg #NavigationToolbar2Tk
 from matplotlib import style
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
@@ -31,7 +31,6 @@ ul_ran=""
 ran=""
     
 def animate(i):
-    global ejes
     global act_rango
     global ul_ran
     if act_rango==True:
@@ -79,15 +78,20 @@ def represent():
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
 
+#ENTRADA FUNCION
 et = tkinter.Entry(master=root,width=60)
 et.config(bg="gray87", justify="left")
+#ENTRADA RANGO
+ets=tkinter.Entry(master=root,width=10)
+#ETIQUETA RANGO
+label = tkinter.Label(master = root, text = "RANGO DE 'X'")
+#BOTÓN "SET"
 button = tkinter.Button(master=root, text="SET", bg="gray69", command=represent)
+
+#UBICACIÓN ELEMENTOS.
 button.pack(side=tkinter.BOTTOM)
 et.pack(side=tkinter.BOTTOM)
-
-ets=tkinter.Entry(master=root,width=10)
 ets.pack(side=tkinter.RIGHT)
-label = tkinter.Label(master = root, text = "RANGO DE 'X'")
 label.pack(side = tkinter.RIGHT)
 
 tkinter.mainloop()
