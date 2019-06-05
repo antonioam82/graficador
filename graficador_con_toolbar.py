@@ -26,14 +26,11 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
 toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
-
-
 act_rango=False
 ul_ran=""
 ran=""
     
 def animate(i):
-    global stop_anim
     global act_rango
     global ul_ran
     if act_rango==True:
@@ -67,7 +64,6 @@ def represent():
     global graph_data
     global ran
     global act_rango
-    global stop_anim
     texto_orig=et.get()
     if ets.get()!="":
         rann=ets.get()
