@@ -58,6 +58,7 @@ def animate(i):
         ax1.plot()
     ax1.axhline(0, color="gray")
     ax1.axvline(0, color="gray")
+    ani.event_source.stop()
 
 def represent():
     global graph_data
@@ -74,6 +75,7 @@ def represent():
     tc=tl.replace("tan","np.tan")
     tr=tc.replace("sqrt","np.sqrt")
     graph_data=tr
+    ani.event_source.start()
 
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 plt.show()
