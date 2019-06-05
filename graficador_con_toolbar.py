@@ -23,8 +23,11 @@ canvas = FigureCanvasTkAgg(fig, master=root)  # CREAR AREA DE DIBUJO DE TKINTER.
 canvas.draw()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
-
+toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
+toolbar.update()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+
+
 act_rango=False
 ul_ran=""
 ran=""
@@ -58,7 +61,7 @@ def animate(i):
         ax1.plot()
     ax1.axhline(0, color="gray")
     ax1.axvline(0, color="gray")
-    ani.event_source.stop() #PARA ANIMACIÓM
+    ani.event_source.stop()
 
 def represent():
     global graph_data
@@ -76,30 +79,21 @@ def represent():
     tc=tl.replace("tan","np.tan")
     tr=tc.replace("sqrt","np.sqrt")
     graph_data=tr
-    ani.event_source.start() #REANUDA ANIMACIÓN
+    ani.event_source.start()
     
 
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 
 plt.show()
 
-#ENTRADA FUNCION
 et = tkinter.Entry(master=root,width=60)
 et.config(bg="gray87", justify="left")
-#ENTRADA RANGO
-ets=tkinter.Entry(master=root,width=10)
-#ETIQUETA RANGO
-label = tkinter.Label(master = root, text = "RANGO DE 'X'")
-#BOTÓN "SET"
 button = tkinter.Button(master=root, text="SET", bg="gray69", command=represent)
-
-#UBICACIÓN ELEMENTOS.
 button.pack(side=tkinter.BOTTOM)
 et.pack(side=tkinter.BOTTOM)
-ets.pack(side=tkinter.RIGHT)
-label.pack(side = tkinter.RIGHT)
 
-toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
-toolbar.update()
+ets=tkinter.Entry(master=root,width=10)
+ets.pack(side=tkinter.RIGHT)
+
 
 tkinter.mainloop()
