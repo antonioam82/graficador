@@ -42,7 +42,7 @@ def animate(i):
             else:
                 act_rango = False
         except:
-            messagebox.showwarning("Error","Entrada no válida")
+            messagebox.showwarning("Error","Introduzca los valores del rango de x, separado por coma.")
             act_rango=False
             ets.delete(0,len(ets.get()))
     else:
