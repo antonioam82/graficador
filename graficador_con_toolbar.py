@@ -32,15 +32,11 @@ funciones={"sin":"np.sin","cos":"np.cos","tan":"np.tan","log":"np.log",
            "pi":"np.pi","sqrt":"np.sqrt"}
 
 def reemplazo(s):
-    done=False
+    #done=False
     for i in funciones:
         if i in s:
-            if done==False:
-                ns=s.replace(i, funciones[i])
-                done=True
-            else:
-                ns=ns.replace(i, funciones[i])
-    return ns
+            s=s.replace(i, funciones[i])
+    return s
 
 act_rango=False
 ul_ran=""
