@@ -32,7 +32,6 @@ funciones={"sin":"np.sin","cos":"np.cos","tan":"np.tan","log":"np.log",
            "pi":"np.pi","sqrt":"np.sqrt"}
 
 def reemplazo(s):
-    #done=False
     for i in funciones:
         if i in s:
             s=s.replace(i, funciones[i])
@@ -63,7 +62,7 @@ def animate(i):
         else:
             x =np.arange(1, 10, .01)#.01
     try:
-        print(graph_data)
+        #print(graph_data)
         solo=eval(graph_data)
         ax1.clear()
         ax1.plot(x, solo)
