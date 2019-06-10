@@ -91,14 +91,12 @@ def represent():
     graph_data=reemplazo(texto_orig)
     ani.event_source.start() #INICIA/REANUDA ANIMACIÓN
     
-
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 
 plt.show()
 
 
 et = tkinter.Entry(master=root,width=60)
-
 et.config(bg="gray87", justify="left")
 
 button = tkinter.Button(master=root, text="SET", bg="gray69", command=represent)
