@@ -61,6 +61,7 @@ def animate(i):
             x = np.arange(1, 10, .01)#.01
     try:
         solo=eval(graph_data)
+        #print(graph_data)
         ax1.clear()
         ax1.plot(x,solo)
     except:
