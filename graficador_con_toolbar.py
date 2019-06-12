@@ -7,7 +7,6 @@ from matplotlib import style
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
-#from numpy import *
 from tkinter import messagebox
 from math import *
 
