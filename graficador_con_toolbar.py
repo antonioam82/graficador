@@ -93,7 +93,6 @@ ani = animation.FuncAnimation(fig, animate, interval=1000)
 
 plt.show()
 
-
 et = tkinter.Entry(master=root,width=60)
 et.config(bg="gray87", justify="left")
 
