@@ -81,12 +81,6 @@ def represent():
         rann=ets.get()
         ran=rann.split(",")
         act_rango=True
-    #ta=texto_orig.replace("sin","np.sin")
-    #tb=ta.replace("cos","np.cos")
-    #tl=tb.replace("log","np.log")
-    #tc=tl.replace("tan","np.tan")
-    #tr=tc.replace("sqrt","np.sqrt")
-    #tm=tr.replace("arccos","np.arccos")
     graph_data=reemplazo(texto_orig)
     ani.event_source.start() #INICIA/REANUDA ANIMACIÓN
     
