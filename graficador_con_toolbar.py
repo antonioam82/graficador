@@ -7,6 +7,7 @@ from matplotlib import style
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
+#from numpy import *
 from tkinter import messagebox
 from math import *
 
@@ -31,6 +32,7 @@ funciones={"sin":"np.sin","cos":"np.cos","tan":"np.tan","log":"np.log",
            "pi":"np.pi","sqrt":"np.sqrt"}
 
 def reemplazo(s):
+    #done=False
     for i in funciones:
         if i in s:
             s=s.replace(i, funciones[i])
@@ -61,7 +63,7 @@ def animate(i):
         else:
             x =np.arange(1, 10, .01)#.01
     try:
-        #print(graph_data)
+        print(graph_data)
         solo=eval(graph_data)
         ax1.clear()
         ax1.plot(x, solo)
@@ -89,16 +91,20 @@ def represent():
     graph_data=reemplazo(texto_orig)
     ani.event_source.start() #INICIA/REANUDA ANIMACIÓN
     
+
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 
 plt.show()
 
+
 et = tkinter.Entry(master=root,width=60)
+
 et.config(bg="gray87", justify="left")
 
 button = tkinter.Button(master=root, text="SET", bg="gray69", command=represent)
 button.pack(side=tkinter.BOTTOM)
-
+label=tkinter.Label(master=root, text="RANGO DE X")
+label.place(x=855,y=600)
 et.pack(side=tkinter.BOTTOM)
 ets=tkinter.Entry(master=root,width=10)
 ets.pack(side=tkinter.RIGHT)
