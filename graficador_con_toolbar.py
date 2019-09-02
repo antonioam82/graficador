@@ -25,7 +25,6 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
 toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
 toolbar.update()
-canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
 funciones={"sin":"np.sin","cos":"np.cos","tan":"np.tan","log":"np.log",
            "pi":"np.pi","sqrt":"np.sqrt"}
