@@ -30,7 +30,7 @@ ul_ran=""
 ran=""
 
 funciones={"sin":"np.sin","cos":"np.cos","tan":"np.tan","log":"np.log",
-           "pi":"np.pi","sqrt":"np.sqrt"}
+           "pi":"np.pi","sqrt":"np.sqrt","exp":"np.exp"}
 
 def reemplazo(s):
     for i in funciones:
