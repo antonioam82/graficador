@@ -25,15 +25,7 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
 toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
 toolbar.update()
-
-funciones={"sin":"np.sin","cos":"np.cos","tan":"np.tan","log":"np.log",
-           "pi":"np.pi","sqrt":"np.sqrt","exp":"np.exp"}
-
-def reemplazo(s):
-    for i in funciones:
-        if i in s:
-            s=s.replace(i, funciones[i])
-    return s
+canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
 act_rango=False
 ul_ran=""
@@ -56,14 +48,13 @@ def animate(i):
             ets.delete(0,len(ets.get()))
     else:
         if ul_ran!="":
-            x =np.arange(ul_ran[0],ul_ran[1], .01)#.01
+            x = np.arange(ul_ran[0],ul_ran[1], .01)#.01
         else:
-            x =np.arange(1, 10, .01)#.01
+            x = np.arange(1, 10, .01)#.01
     try:
-        #print(graph_data)
         solo=eval(graph_data)
         ax1.clear()
-        ax1.plot(x, solo)
+        ax1.plot(x,solo)
     except:
         ax1.plot()
     ax1.axhline(0, color="gray")
@@ -79,22 +70,30 @@ def represent():
         rann=ets.get()
         ran=rann.split(",")
         act_rango=True
-    graph_data=reemplazo(texto_orig)
+    ta=texto_orig.replace("sin","np.sin")
+    tb=ta.replace("cos","np.cos")
+    tl=tb.replace("log","np.log")
+    tc=tl.replace("tan","np.tan")
+    tr=tc.replace("sqrt","np.sqrt")
+    graph_data=tr
     ani.event_source.start() #INICIA/REANUDA ANIMACIÓN
     
+
 ani = animation.FuncAnimation(fig, animate, interval=1000)
 
 plt.show()
+
 
 et = tkinter.Entry(master=root,width=60)
 et.config(bg="gray87", justify="left")
 
 button = tkinter.Button(master=root, text="SET", bg="gray69", command=represent)
 button.pack(side=tkinter.BOTTOM)
-#label=tkinter.Label(master=root, text="RANGO DE X")
-#label.place(x=855,y=600)
+
 et.pack(side=tkinter.BOTTOM)
-ets=tkinter.Entry(master=root,width=10)
+ets=tkinter.Entry(master=root,width=20)
+ets.config(bg="gray87")
 ets.pack(side=tkinter.RIGHT)
+ets.insert(0,"RANGO DE X")
 
 tkinter.mainloop()
