@@ -30,6 +30,15 @@ canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 act_rango=False
 ul_ran=""
 ran=""
+
+funciones={"sin":"np.sin","cos":"np.cos","tan":"np.tan","log":"np.log",
+           "pi":"np.pi","sqrt":"np.sqrt","exp":"np.exp"}
+
+def reemplazo(s):
+    for i in funciones:
+        if i in s:
+            s=s.replace(i, funciones[i])
+    return s
  
 def animate(i):
     global act_rango
@@ -70,13 +79,8 @@ def represent():
         rann=ets.get()
         ran=rann.split(",")
         act_rango=True
-    ta=texto_orig.replace("sin","np.sin")
-    tb=ta.replace("cos","np.cos")
-    tl=tb.replace("log","np.log")
-    tc=tl.replace("tan","np.tan")
-    tr=tc.replace("sqrt","np.sqrt")
-    te=tr.replace("exp","np.exp")
-    graph_data=te
+    
+    graph_data=reemplazo(texto_orig)
     ani.event_source.start() #INICIA/REANUDA ANIMACIÓN
  
  
