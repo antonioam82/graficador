@@ -82,8 +82,7 @@ def represent():
     
     graph_data=reemplazo(texto_orig)
     ani.event_source.start() #INICIA/REANUDA ANIMACIÓN
- 
- 
+    
 ani = animation.FuncAnimation(fig, animate, interval=1000)
  
 plt.show()
