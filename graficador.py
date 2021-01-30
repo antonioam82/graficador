@@ -2,42 +2,35 @@
 # -*- coding: utf-8 -*-
 import tkinter
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg #NavigationToolbar2Tk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib import style
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 import numpy as np
 from tkinter import messagebox
 from math import *
-
+ 
 root = tkinter.Tk()
 root.wm_title("Graficador")
 ta=root.geometry("1000x700")
-
-style.use('fivethirtyeight')#'
-
+ 
+style.use('fivethirtyeight')
+ 
 fig = Figure()
 ax1 = fig.add_subplot(111)
-
+ 
 canvas = FigureCanvasTkAgg(fig, master=root)  # CREAR AREA DE DIBUJO DE TKINTER.
 canvas.draw()
 canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
-
-#toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
-#toolbar.update()
+ 
+toolbar = NavigationToolbar2Tk(canvas, root)# barra de iconos
+toolbar.update()
+canvas.get_tk_widget().pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+ 
 act_rango=False
 ul_ran=""
 ran=""
-
-funciones={"sin":"np.sin","cos":"np.cos","tan":"np.tan","log":"np.log",
-           "pi":"np.pi","sqrt":"np.sqrt","exp":"np.exp"}
-
-def reemplazo(s):
-    for i in funciones:
-        if i in s:
-            s=s.replace(i, funciones[i])
-    return s
-    
+ 
 def animate(i):
     global act_rango
     global ul_ran
@@ -50,7 +43,7 @@ def animate(i):
             else:
                 act_rango = False
         except:
-            messagebox.showwarning("Error","Entrada no válida")
+            messagebox.showwarning("Error","Introduzca los valores del rango de x, separado por coma.")
             act_rango=False
             ets.delete(0,len(ets.get()))
     else:
@@ -60,15 +53,14 @@ def animate(i):
             x = np.arange(1, 10, .01)#.01
     try:
         solo=eval(graph_data)
-        #print(graph_data)
         ax1.clear()
         ax1.plot(x,solo)
     except:
         ax1.plot()
     ax1.axhline(0, color="gray")
     ax1.axvline(0, color="gray")
-    ani.event_source.stop()
-
+    ani.event_source.stop() #DETIENE ANIMACIÓN
+ 
 def represent():
     global graph_data
     global ran
@@ -78,26 +70,31 @@ def represent():
         rann=ets.get()
         ran=rann.split(",")
         act_rango=True
-    graph_data=reemplazo(texto_orig)
-    ani.event_source.start()
-
+    ta=texto_orig.replace("sin","np.sin")
+    tb=ta.replace("cos","np.cos")
+    tl=tb.replace("log","np.log")
+    tc=tl.replace("tan","np.tan")
+    tr=tc.replace("sqrt","np.sqrt")
+    te=tr.replace("exp","np.exp")
+    graph_data=te
+    ani.event_source.start() #INICIA/REANUDA ANIMACIÓN
+ 
+ 
 ani = animation.FuncAnimation(fig, animate, interval=1000)
+ 
 plt.show()
-
-#ENTRADA FUNCION
+ 
+ 
 et = tkinter.Entry(master=root,width=60)
 et.config(bg="gray87", justify="left")
-#ENTRADA RANGO
-ets=tkinter.Entry(master=root,width=10)
-#ETIQUETA RANGO
-label = tkinter.Label(master = root, text = "RANGO DE 'X'")
-#BOTÓN "SET"
+ 
 button = tkinter.Button(master=root, text="SET", bg="gray69", command=represent)
-
-#UBICACIÓN ELEMENTOS.
 button.pack(side=tkinter.BOTTOM)
+ 
 et.pack(side=tkinter.BOTTOM)
+ets=tkinter.Entry(master=root,width=20)
+ets.config(bg="gray87")
 ets.pack(side=tkinter.RIGHT)
-label.pack(side = tkinter.RIGHT)
-
+#ets.insert(0,"RANGO DE X")
+ 
 tkinter.mainloop()
